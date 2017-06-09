@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>NearApp</title>
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:300" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
+	<link href="./css/app.css" rel="stylesheet">
+</head>
+
+<body ng-app="MyApp" ng-controller="appCtrl" layout="row" flex>
+	<div layout="column" flex>
+<!-- //////////////////////////////////////////////////////////
+                        HEADER 
+////////////////////////////////////////////////////////////-->
+		<div ng-show="page !== 16" layout="row" ng-controller="appCtrl">
+			<md-whiteframe class="md-whiteframe-1dp headerTop" layout="row" flex>
+
+					<div class="md-toolbar-tools">
+						<!-- LEFT BUTTON AND LOGO -->
+						<div layout="row" flex layout-align="start center">
+							<md-button class="md-icon-button "ng-click="toggleLeft()" 
+									   ng-hide="isOpenLeft()" class="md-primary" style="padding-left: 1px;">
+								<i class="material-icons">menu</i>
+							</md-button>
+							<div class="logo">
+								<img ng-src="./imgs/nearapp.png"
+									style="width: 145px; height: 40px;">	
+							</div>
+						</div>
+
+						<!-- AVATAR -->
+						<div class="header-humanoid">
+							<img ng-src="./imgs/Maya.jpg" class="md-card-image" 
+							style="width: 80px; height: 80px; background-size: 80px 80px;">	
+						</div>
+
+						
+						<!-- RIGHT BUTTONS -->
+						<div layout="row" class="rightButtons">	
+							<md-button class="md-icon-button">
+								<i class="material-icons">restore</i>
+							</md-button>
+							<md-button class="md-icon-button">
+								<i class="material-icons">help_outline</i>
+							</md-button>			
+						</div>
+					</div>				
+		    </md-whiteframe>
+		</div>    
+
+<!-- //////////////////////////////////////////////////////////
+                     HEADER PAGE 16 
+////////////////////////////////////////////////////////////-->
+		<div ng-show="page === 16" layout="row" ng-controller="appCtrl">
+			<md-whiteframe class="md-whiteframe-1dp headerTop" layout="row" flex>
+
+					<div class="md-toolbar-tools">
+						<!-- LEFT BUTTON AND LOGO -->
+						<div layout="row" flex layout-align="start center">
+							<md-button class="md-icon-button "ng-click="toggleLeft()" 
+									   ng-hide="isOpenLeft()" class="md-primary" style="padding-left: 1px;">
+								<i class="material-icons">menu</i>
+							</md-button>
+							<div class="logo" style="padding-left: 525px;">
+								<img ng-src="./imgs/nearapp.png"
+									style="width: 145px; height: 40px;">	
+							</div>
+						</div>
+
+						
+						<!-- RIGHT BUTTONS -->
+						<div layout="row" class="rightButtons">	
+							<md-button class="md-icon-button">
+								<i class="material-icons">restore</i>
+							</md-button>
+							<md-button class="md-icon-button">
+								<i class="material-icons">help_outline</i>
+							</md-button>			
+						</div>
+					</div>				
+		    </md-whiteframe>
+		</div>    
+
+<!-- //////////////////////////////////////////////////////////
+                  PREVIOUS PAGE BUTTON
+////////////////////////////////////////////////////////////-->	
+				<div class="previousBtn" layout="column" layout-align="start end" flex flex="20"
+						ng-show="page !== 1 && page !== 16" style="padding-top: 200px">
+					<div>
+						<img src="./imgs/arrowLeft.png" ng-click="previousPage()">
+					</div>
+				</div>
+
+<!-- //////////////////////////////////////////////////////////
+                      CHAT PAGES
+////////////////////////////////////////////////////////////-->	
+		<div layout="column" id="mainPage">
+			<div layout="row"  layout-align="start start">
+				<!-- CHAT#1 -->
+				<div ng-show="page === 1" class="chatContainer" layout="column" layout-align="center center" flex>
+					<div>
+						<!-- TEXT AREA -->
+						<div >
+							<p>
+								<h1 class="chatText">
+									Hey! I'm Maya. I'll get you an awesome <br>
+									price in seconds. Ready to go?	
+								</h1>
+							</p>
+						</div>				
+						<!-- INPUT AREA -->
+						<div class="inputArea">				
+							<md-input-container >	
+								<input type="text" placeholder="FIRST NAME">
+							</md-input-container>
+							<md-input-container>	
+								<input type="text" placeholder="LAST NAME">
+							</md-input-container>						
+						</div>				
+					</div>			
+				</div>
+				<!-- CHAT#2 -->
+				<div ng-show="page === 2" class="chatContainer" layout="column" layout-align="center center" flex>
+					<!-- TEXT AREA -->
+					<div >
+						<p>
+							<h1 class="chatText">
+								Great to meet you <!-- {{user.name}} -->Cool! What's your<br>home address?	
+							</h1>
+						</p>
+					</div>				
+					<!-- INPUT AREA -->
+					<div layout="row" class="inputArea">				
+						<md-input-container flex="70">	
+							<input type="text" placeholder="ENTER ADDRESS HERE">
+						</md-input-container flex="30">
+						<md-input-container>	
+							<input type="text" placeholder="APARTMENT">
+						</md-input-container>						
+					</div>										
+				</div>
+				<!-- CHAT#3 -->
+				<div ng-show="page === 3" class="chatContainer" layout="column" layout-align="center center" flex>
+					<!-- TEXT AREA -->
+					<div >
+						<p>
+							<h1 class="chatText">
+								Do you rent or own it?	
+							</h1>
+						</p>
+					</div>				
+					<!-- INPUT AREA -->
+					<div layout="row" class="inputArea">
+						<!-- RADIO GROUP -->
+						<md-radio-group layout="row" ng-init="height1 = 1; height2 = 1">
+							<!-- FIRST WHITEFRAME -->			
+							<div layout="column" class="cards" md-whiteframe="{{height1}}" 
+									 flex-gt-sm="50" layout="column" layout-align="space-around center"
+									onmouseenter="setValues('1,15')">
+								<!-- ICON -->
+								<span>
+									<img hrf="#" ng-src="./imgs/store.png" style="width: 80px; height: 80px">
+								</span>
+								<div>
+									<label  style="color: #4A4A4A;">STORE</label>
+								</div>
+								<!-- RADIO BUTTON -->
+								<div>
+									<md-radio-button value="2, 4" ng-click="selectCard()"  class="md-primary"></md-radio-button>
+								</div>
+							</div>
+							<!-- SECOND WHITEFRAME -->	
+							<div layout="column" class="cards" md-whiteframe="{{height2}}" 
+									 flex-gt-sm="50" layout="column" 	  layout-align="space-around center"
+									onmouseenter="setValues('15,1')">
+								<!-- ICON -->	
+								<span>
+									<img hrf="#" ng-src="./imgs/food.png" style="width: 80px; height: 80px">	
+								</span>
+								<div>
+									<label  style="color: #4A4A4A;">RESTAURANT</label>
+								</div>
+								<!-- RADIO BUTTON -->
+								<div>
+									<md-radio-button value="3, 6" ng-click="selectCard()"  class="md-primary"></md-radio-button>
+								</div>
+							</div>
+						</md-radio-group>
+						<!-- END RADIO GROUP -->
+					</div>
+					<!-- END INPUT AREA -->
+				    <!-- END TEXT AREA -->					
+				</div>
+				<!-- CHAT#4 -->
+				<div ng-show="page === 4" class="chatContainer" layout="column" flex>
+					<!-- TEXT AREA -->
+					<div layout="row" layout-align="center center">
+						<div >
+							<p>
+								<h1 class="chatText">
+									What type of property is it?	
+								</h1>
+							</p>
+						</div>
+					</div>					
+					<!-- INPUT AREA -->
+					<div layout="row" layout-align="center center" class="inputArea">
+						<!-- RADIO GROUP -->
+						<md-radio-group layout="column" layout-align="center center">
+							<!-- BOTTONS -->			
+							<md-button class="btn-4">
+								<md-radio-button value="CONDO" class="md-primary" layout="row" layout-align="start center">
+									<label  style="color: #4A4A4A;">CONDO</label>
+								</md-radio-button>
+							</md-button>			
+							<md-button class="btn-4">
+								<md-radio-button value="CO-OP" class=" md-primary" layout="row" layout-align="start center">
+									<label style="color: #4A4A4A;">CO-OP</label>
+								</md-radio-button>	
+							</md-button>
+							<md-button class="btn-4">
+								<md-radio-button value="HOUSE" class=" md-primary" layout="row" layout-align="start center">
+									<label style="color: #4A4A4A;">HOUSE</label>
+								</md-radio-button>	
+							</md-button>						
+						</md-radio-group>
+						<!-- END RADIO GROUP -->
+					</div>
+					<!-- END INPUT AREA -->				
+					<!-- END TEXT AREA -->				
+				</div>
+				<!-- CHAT#5 -->
+					<div ng-show="page === 5" class="chatContainer" layout="column" flex>
+					<!-- TEXT AREA -->
+					<div >
+						<div >
+							<p>
+								<h1 class="chatText">
+									What kind of building is it?	
+								</h1>
+							</p>
+						</div>
+					</div>					
+					<!-- INPUT AREA -->
+					<div layout="row" class="inputArea" layout-align="start start">
+						<!-- RADIO GROUP -->
+						<div layout="column" layout-align="center center" flex>
+							<md-radio-group layout="column" layout-align="start center">
+								<!-- BOTTONS -->			
+								<md-button class="btn-4">
+									<md-radio-button value="SINGLE FAMILY HOUSE" class="md-primary" layout="row" layout-align="start center">
+										<label  style="color: #4A4A4A;">SINGLE FAMILY HOUSE</label>
+									</md-radio-button>
+								</md-button>			
+								<md-button class="btn-4">
+									<md-radio-button value="DUPLEX" class=" md-primary" layout="row" layout-align="start center">
+										<label style="color: #4A4A4A;">DUPLEX</label>
+									</md-radio-button>	
+								</md-button>
+								<md-button class="btn-4">
+									<md-radio-button value="TRIPLEX/FOURPLEX" class=" md-primary" layout="row" layout-align="start center">
+										<label style="color: #4A4A4A;">TRIPLEX/FOURPLEX</label>
+									</md-radio-button>	
+								</md-button>						
+							</md-radio-group>
+						</div>	
+						<!-- END RADIO GROUP -->
+					</div>
+					<!-- END INPUT AREA -->				
+					<!-- END TEXT AREA -->			
+				</div>
+				<!-- CHAT#6 -->
+				<div ng-show="page === 6" class="chatContainer" layout="column" flex>
+					<!-- TEXT AREA -->
+					<div>
+						<div >
+							<p>
+								<h1 class="chatText">
+									What is it used for?	
+								</h1>
+							</p>
+						</div>
+					</div>					
+					<!-- INPUT AREA -->
+					<div layout="row" class="inputArea" layout-align="center center" flex>
+						<!-- RADIO GROUP -->
+							<md-radio-group layout="colum" layout-align="center center" flex="45" >
+								<!-- BOTTONS -->
+								<div layout="column" flex="50">
+									<md-button >
+										<md-radio-button value="SINGLE FAMILY HOUSE" class="md-primary" layout="row" layout-align="start center">
+											<label  style="color: #4A4A4A;">I LIVE THERE</label>
+										</md-radio-button>
+									</md-button>			
+									<md-button >
+										<md-radio-button value="DUPLEX" class=" md-primary" layout="row" layout-align="start center">
+											<label style="color: #4A4A4A;">I AM ABOUT TO MOVE IN</label>
+										</md-radio-button>	
+									</md-button>
+									<md-button >
+										<md-radio-button value="TRIPLEX/FOURPLEX" class=" md-primary" layout="row" layout-align="start center">
+											<label style="color: #4A4A4A;">A GAME STORE</label>
+										</md-radio-button>	
+									</md-button>	
+								</div> 
+								<div layout="column" flex="50">
+									<md-button >
+										<md-radio-button value="I RENT IT OUT" class="md-primary" 		layout="row" layout-align="start center">
+											<label  style="color: #4A4A4A;">I RENT IT OUT</label>
+										</md-radio-button>
+									</md-button>			
+									<md-button >
+										<md-radio-button value="A BUSINES" class=" md-primary" layout="row" layout-align="start center">
+											<label style="color: #4A4A4A;">A BUSINES</label>
+										</md-radio-button>	
+									</md-button>
+									<md-button >
+										<md-radio-button value="VACATION HOME" class=" md-primary" layout="row" layout-align="start center">
+											<label style="color: #4A4A4A;">VACATION HOME</label>
+										</md-radio-button>	
+									</md-button>						
+								</div> 	
+							</md-radio-group>
+						</div>	
+						<!-- END RADIO GROUP -->
+					</div>
+					<!-- END INPUT AREA -->				
+					<!-- END TEXT AREA -->			
+				</div>
+				<!-- CHAT#7 -->
+				<div ng-show="page === 7" class="chatContainer" layout="column" layout-align="center center" flex>
+					<!-- TEXT AREA -->
+					<div>
+						<div>
+							<p>
+								<h1 class="chatText">
+									What's the size of your home (Sq ft)?
+								</h1>
+							</p>
+						</div>
+					</div>					
+						<!-- INPUT AREA -->
+					<div class="inputArea">				
+						<md-input-container>	
+							<input type="text" placeholder="SQUARE FT.">
+						</md-input-container>						
+					</div>							
+				</div>
+				<!-- CHAT#8 -->
+				<div ng-show="page === 8" class="chatContainer" layout="column" layout-align="center center">
+					<!-- TEXT AREA -->
+					<div>
+						<div >
+							<p>
+								<h1 class="chatText">
+									Do you have any of the following<br>installed?	
+								</h1>
+							</p>
+						</div>				
+						<!-- INPUT AREA -->
+						<div layout="row" class="inputArea" layout-align="center center">
+							<!-- RADIO GROUP -->
+							<md-radio-group layout="row">
+								<!-- FIRST WHITEFRAME -->			
+								<div layout="column" class="padded cards" md-whiteframe="{{height1}}" 
+										flex="100" flex-gt-sm="50" layout="column" layout-align="space-around center"
+										onmouseenter="setValues('1,15')">
+									<!-- ICON -->
+									<span>
+										<img hrf="#" ng-src="./imgs/fire.png" style="width: 80px; height: 80px">
+									</span>
+									<div>
+										<label class="btnNext" style="color: #4A4A4A;">FIRE ALARM</label>
+									</div>
+									<!-- RADIO BUTTON -->
+									<div>
+										<md-checkbox value="2, 4" ng-click="selectCard()"  class="md-primary"></md-checkbox>
+									</div>
+								</div>
+								<!-- SECOND WHITEFRAME -->	
+								<div layout="column" class="padded cards" md-whiteframe="{{height2}}" 
+										flex="100" flex-gt-sm="50" layout="column" 	  layout-align="space-around center"
+										onmouseenter="setValues('15,1')">
+									<!-- ICON -->	
+									<span>
+										<img hrf="#" ng-src="./imgs/burglar.png" style="width: 80px; height: 80px">	
+									</span>
+									<div>
+										<label class="btnNext" style="color: #4A4A4A;">BURGLAR ALARM</label>
+									</div>
+									<!-- RADIO BUTTON -->
+									<div>
+										<md-checkbox value="3, 6" ng-click="selectCard()"  class="md-primary"></md-checkbox>
+									</div>
+								</div>
+							</md-radio-group>
+							<!-- END RADIO GROUP -->
+						</div>
+						<!-- END INPUT AREA -->				
+					</div>
+					<!-- END TEXT AREA -->				
+				</div>
+				<!-- CHAT#9 -->
+				<div ng-show="page === 9" class="chatContainer" layout="column" flex>
+					<!-- TEXT AREA -->
+					<div layout="column" layout-align="center center">
+						<div >
+							<p>
+								<h1 class="chatText">
+									Do you own any jewelry items worth<br>more than $1,000?	
+								</h1>
+							</p>
+						</div>
+					</div>					
+					<!-- INPUT AREA -->
+					<div layout="row" class="inputArea" layout-align="start start">
+						<!-- RADIO GROUP -->
+						<div layout="column" layout-align="center center" flex>
+							<md-radio-group layout="column" layout-align="start center">
+								<!-- BOTTONS -->			
+								<md-button>
+									<md-radio-button value="YES" class="md-primary" layout="row" layout-align="start center">
+										<label  style="color: #4A4A4A;">YES</label>
+									</md-radio-button>
+								</md-button>			
+								<md-button>
+									<md-radio-button value="NO" class=" md-primary" layout="row" layout-align="start center">
+										<label style="color: #4A4A4A;">NO</label>
+									</md-radio-button>	
+								</md-button>						
+							</md-radio-group>
+						</div>	
+						<!-- END RADIO GROUP -->
+					</div>
+					<!-- END INPUT AREA -->				
+					<!-- END TEXT AREA -->			
+				</div>
+				<!-- CHAT#10 -->
+				<div ng-show="page === 10" class="chatContainer" layout="column" flex>
+					<!-- TEXT AREA -->
+					<div layout="column" layout-align="center center">
+						<div>
+							<p>
+								<h1 class="chatText">
+									Do you have, or plan to get, a mortgage or<br>a loan on this property?
+								</h1>
+							</p>
+						</div>
+					</div>					
+					<!-- INPUT AREA -->
+					<div layout="row" class="inputArea" layout-align="start start">
+						<!-- RADIO GROUP -->
+						<div layout="column" layout-align="center center" flex>
+							<md-radio-group layout="column" layout-align="start center">
+								<!-- BOTTONS -->			
+								<md-button>
+									<md-radio-button value="YES" class="md-primary" layout="row" layout-align="start center">
+										<label  style="color: #4A4A4A;">YES</label>
+									</md-radio-button>
+								</md-button>			
+								<md-button>
+									<md-radio-button value="NO" class=" md-primary" layout="row" layout-align="start center">
+										<label style="color: #4A4A4A;">NO</label>
+									</md-radio-button>	
+								</md-button>						
+							</md-radio-group>
+						</div>	
+						<!-- END RADIO GROUP -->
+					</div>
+					<!-- END INPUT AREA -->				
+					<!-- END TEXT AREA -->			
+				</div>
+				<!-- CHAT#11 -->
+				<div ng-show="page === 11" class="chatContainer" layout="column" flex>
+					<!-- TEXT AREA -->
+					<div layout="column" layout-align="center center">
+						<div>
+							<p>
+								<h1 class="chatText">
+									Do you currently have an active<br>homeowners insurance policy?
+								</h1>
+							</p>
+						</div>
+					</div>					
+					<!-- INPUT AREA -->
+					<div class="inputArea" layout-align="start start">
+						<!-- RADIO GROUP -->
+						<div layout="column" layout-align="center center" flex>
+							<md-radio-group layout="column" layout-align="start center">
+								<!-- BOTTONS -->			
+								<md-button >
+									<md-radio-button ng-click="showSimpleToast()" value="YES" class="md-primary" 
+											layout="row" layout-align="start center">
+										<label  style="color: #4A4A4A;">YES</label>
+									</md-radio-button>
+								</md-button>			
+								<md-button>
+									<md-radio-button ng-click="showSimpleToast()" value="NO" class=" md-primary" 
+											layout="row" layout-align="start center">
+										<label style="color: #4A4A4A;">NO</label>
+									</md-radio-button>	
+								</md-button>						
+							</md-radio-group>
+						</div>	
+						<!-- END RADIO GROUP -->
+					</div>
+					<!-- END INPUT AREA -->				
+					<!-- END TEXT AREA -->				
+				</div>
+				<!-- CHAT#12 -->
+				<div ng-show="page === 12" class="chatContainer" layout="column" flex>
+					<!-- TEXT AREA -->
+					<div layout="column" layout-align="center center">
+						<div>
+							<p>
+								<h1 class="chatText">
+									Any homeowner claims of more than<br>$1000 in the past 3 years?
+								</h1>
+							</p>
+						</div>
+					</div>					
+					<!-- INPUT AREA -->
+					<div layout="row" class="inputArea" layout-align="start start">
+						<!-- RADIO GROUP -->
+						<div layout="column" layout-align="center center" flex>
+							<md-radio-group layout="column" layout-align="start start">
+								<!-- BOTTONS -->			
+								<md-button>
+									<md-radio-button value="NOPE" class="md-primary" layout="row" layout-align="start center">
+										<label  style="color: #4A4A4A;">NOPE</label>
+									</md-radio-button>
+								</md-button>			
+								<md-button>
+									<md-radio-button value="ONLY ONE" class=" md-primary" layout="row" layout-align="start center">
+										<label style="color: #4A4A4A;">ONLY ONE</label>
+									</md-radio-button>	
+								</md-button>	
+								<md-button>
+									<md-radio-button value="YES, MORE THAN ONE" class=" md-primary" layout="row" layout-align="start center">
+										<label style="color: #4A4A4A;">YES, MORE THAN ONE</label>
+									</md-radio-button>	
+								</md-button>					
+							</md-radio-group>
+						</div>	
+						<!-- END RADIO GROUP -->
+					</div>
+					<!-- END INPUT AREA -->				
+					<!-- END TEXT AREA -->			
+				</div>
+				<!-- CHAT#13 -->
+				<div ng-show="page === 13" class="chatContainer" layout="column" layout-align="center center" flex>
+					<div>
+						<!-- TEXT AREA -->
+						<div>
+							<p>
+								<h1 class="chatText">
+									What is your Social Security number<br>(SSN)?
+								</h1>
+							</p>
+						</div>				
+						<!-- INPUT AREA -->
+						<div class="inputArea">				
+							<md-input-container>	
+								<input type="text" placeholder="AAA-GG-SSSS">
+							</md-input-container>						
+						</div>				
+					</div>				
+				</div>
+				<!-- CHAT#14 -->
+				<div ng-show="page === 14" class="chatContainer" layout="column" layout-align="center center" flex>
+					<div>
+						<!-- TEXT AREA -->
+						<div>
+							<p>
+								<h1 class="chatText">
+									Alright! let's get you a quote	
+								</h1>
+							</p>
+						</div>				
+						<!-- INPUT AREA -->
+						<div class="inputArea" layout="column" layout-align="center center">
+							<div layout="column" layout-align="center center" style="width: 600px">
+								<div layout="row" layout-align="center center">	
+									<md-input-container flex="10">	
+									 	<img src="./imgs/email.png" style="width: 20px; height: 20px">
+									</md-input-container>		
+									<md-input-container flex="50">	
+										<input type="text" placeholder="YOUR EMAIL ADDRESS...">
+									</md-input-container>
+									<md-input-container flex="10">	
+									 	<img src="./imgs/cake.png" style="width: 20px; height: 20px">
+									</md-input-container>
+									<md-input-container flex="10">	
+										<input type="text" placeholder="MM">
+									</md-input-container>
+									<md-input-container flex="10">	
+										<input type="text" placeholder="DD">
+									</md-input-container>	
+									<md-input-container flex="10">	
+										<input type="text" placeholder="YYYY">
+									</md-input-container>							
+								</div>
+							</div>
+							<div layout="column" layout-align="center center">
+								<md-checkbox>
+									I agree to the <a href="#" style="color: #FF0083;" target="_blank">terms of service</a>
+			          			</md-checkbox>
+							</div>				
+						</div>
+					</div>						
+				</div>
+				<!-- CHAT#15 -->
+				<div ng-show="page === 15" class="chatContainer" layout="column" layout-align="center center" flex>
+					<div>
+						<!-- TEXT AREA -->
+						<div >
+							<p>
+								<h1 class="chatText">
+									One sec while I crush some numbers...	
+								</h1>
+							</p>
+						</div>				
+
+						<div class="inputArea">	
+							<!-- PROGRESS CIRCULAR -->
+							<div layout="row" layout-align="center center">
+								<div>
+									<md-progress-circular md-mode="indeterminate" md-diameter="15px"></md-progress-circular>
+								</div>
+								<div style="padding-left: 10px;">
+									<p style="color: #4A4A4A; font-size: 15px">Checking storm and fire sensitivity</p>	
+								</div>
+							</div>
+							<!-- PROGRESS LINEAR -->
+							<md-progress-linear md-mode="indeterminate"></md-progress-linear>
+							<!-- BUILDING INFORMATIONS -->
+							<div layout="row">
+								<div flex="50" layout="column" layout-align="start start">
+									<p style="color: #4A4A4A; font-size: 15px">Building Age</p>
+									<p style="color: #4A4A4A; font-size: 15px">Building Durability</p>
+									<p style="color: #4A4A4A; font-size: 15px">Distance From Coast</p>
+								</div>
+								<!-- BUILDING STARS -->
+								<div flex="50" layout="column" layout-align="space-around end" ng-init="s = 'starPink.png'">
+									<div>
+										<img src="./imgs/{{s}}" >
+										<img src="./imgs/{{s}}" >
+										<img src="./imgs/{{s}}" >
+										<img src="./imgs/{{s}}" >
+										<img src="./imgs/{{s}}" >
+										<img src="./imgs/{{s}}" >
+									</div>
+									<div>
+										<img src="./imgs/{{s}}" >
+										<img src="./imgs/{{s}}" >
+										<img src="./imgs/{{s}}" >
+									</div>
+									<div>
+										<img src="./imgs/{{s}}" >
+										<img src="./imgs/{{s}}" >
+										<img src="./imgs/{{s}}" >
+										<img src="./imgs/{{s}}" >
+									</div>
+								</div>
+							</div>														
+						</div>				
+					</div>					
+				</div>
+				<!-- CHAT#16 -->
+				<div ng-show="page === 16" class="chatContainer" layout="column" layout-align="center center">
+					<div>
+						<!-- TEXT AREA -->
+						<div style="height: 90px; padding-bottom: 25px">
+							<h3 class="bold">
+								<bold>Yikes!</bold>	
+							</h3>
+						</div>				
+						<!-- PARAGRAPH -->
+						<div layout="column" style="width: 600px;">	
+							<div layout="column" layout-align="center center">
+								<p class="finalP">
+									According to the info you provided, we can't insure<br>your property at this time. We're constantly updating<br>our policies and will be happy to let you know as soon<soon>as we can cover your home.
+								</p>
+							</div>
+						</div>				
+					</div>					
+				</div>			
+			</div>
+
+<!-- //////////////////////////////////////////////////////////
+           		  NEXT PAGE BUTTON
+////////////////////////////////////////////////////////////-->	
+			<div ng-show="page < 15" layout="row" layout-align="center start">
+				<md-form>
+					<div style="margin-top: 30px;">
+						<md-button class="md-raised md-primary btnNext" ng-disabled="false"
+								ng-click="nextPage()">
+							NEXT  	
+						</md-button>
+					</div>
+				</md-form>
+			</div>
+		<!-- END -->
+<!-- //////////////////////////////////////////////////////////
+                       SIDE-NAV 
+////////////////////////////////////////////////////////////-->	
+	<div layout="column" ng-hide="!isOpenLeft()" ng-controller="appCtrl" >
+		
+		<md-sidenav class="md-sidenav-left md-whiteframe-4dp sideNav" 
+			md-component-id="left" style="background-color: #313131;" layout="column">
+			<!-- MAIN CONTENT -->
+	    	<div layout="column">
+	    		<!-- CLOSE BUTTON -->
+		    	<div layout="row" layout-align="end" style="height: 15px;">
+					<md-button ng-click="toggleLeft()" class="md-icon-button"
+						style="color: white;" >
+						<i class="material-icons">close</i>
+        			</md-button>
+    			</div>
+				<!-- MENU LIST -->
+    			<div layout="row" layout-align="start start">
+    				<div layout="column" layout-align="start start" flex>
+    					<div layout="row" ng-repeat="name in ['Home', 'Fundraise', 'FAQ', 'Blog', 'Start over']">
+						  	<div>
+							    <md-button href="#" class="linksApp" style="color: white;" >	
+							    	{{name}}
+							    </md-button>								  		
+						  	</div>	        						
+    					</div>
+    				</div>
+    			</div>	
+			</div>
+			<!-- BOTTOMS SHEET -->
+			<div layout="column" layout-align="end center" class="navBarButtons" flex>
+    			<div layout="row" class="md-padding">
+    				<div ng-repeat="img in ['facebook', 'instagram', 'twitter']">
+    					<md-button class="md-fab" id="btnMedia" layout="row" layout-align="center center">
+    						<img hrf="#" ng-src="./imgs/{{img}}.png" style="width: 28px; height: 28px">	
+    					</md-button>
+    				</div>       				
+    			</div>
+    		</div>		
+		</md-sidenav>
+	</div>
+
+<!-- //////////////////////////////////////////////////////////
+                       SCRIPTS 
+////////////////////////////////////////////////////////////-->	
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-animate/angular-animate.js"></script>
+	<script src="node_modules/angular-aria/angular-aria.js"></script>
+	<script src="node_modules/angular-material/angular-material.js"></script>
+	<script src="node_modules/angular-messages/angular-messages.js"></script>
+	<script src="node_modules/material-avatar/material-avatar.min.js"></script>
+
+	<script src="js/app.js"></script>
+
+	
+
+</body>
+</html>

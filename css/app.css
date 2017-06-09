@@ -1,0 +1,144 @@
+.header-humanoid {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 54%;
+    margin-left: -92px;
+    padding-top: 62px;
+}
+
+.logo {
+    position: absolute;
+    left: 80px;
+    top: 20px;
+    opacity: 0.74;
+}
+
+
+}
+
+.rightButtons {
+	opacity: 0.76;
+}
+
+.headerTop {
+	padding-top: 5px;
+}
+
+.sideNav {
+	width: 279px;
+}
+
+.linksApp {
+    text-transform: none;
+    color: white;
+    text-align: left;
+    padding-left: 30px;
+    font-family: "Lato";
+    font-style: normal;
+    font-size: 17px;
+}
+.navBarButtons {
+	position: absolute;
+    left: 16px;
+    bottom: 15px;
+}
+#btnMedia {
+	background: #4A4A4A;
+	position: relative;
+	
+}
+#btnMedia:hover {
+	background-color: #FF0083;
+}
+
+
+.chatContainer {
+	margin-top: 50px;
+    text-align: center;
+}
+
+.chatText {
+	font-family: 'Merriweather', Georgia, serif;
+	color: #4A4A4A;
+    font-weight: 400;
+    font-stretch: normal;
+    font-size: 36px; 
+}
+
+.btnNext {
+	min-width: 188px;
+	min-height: 48px;
+	border-radius: 5px;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 15px;
+	font-family: 'Merriweather', Georgia, serif;
+}
+
+.cards {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    width: 208px; 
+    height: 198px; 
+}
+.cards-4 {
+    margin-right: 10px;
+    width: 208px; 
+    height: 58px; 
+}
+.btn-4 {
+	min-width: 350px;
+	min-height: 48px;
+	border-radius: 3%;
+}
+label {
+	font-style: normal;
+	font-variant-ligatures: normal;
+	font-variant-caps: normal;
+	font-variant-numeric: normal;
+	font-weight: 400;
+	font-stretch: normal;
+	font-size: 15px;
+	line-height: 50px;
+	font-family: 'Merriweather', Georgia, serif;
+}
+.bold {
+	font-family: "Merriweather",Georgia,serif;
+    color: #4A4A4A;
+    font-weight: normal;
+	font-size: 36px;
+    text-align: center;
+}
+.finalP {
+	font-family: "Lato",Georgia,serif;
+    color: #4A4A4A;
+    text-align: center;
+    max-width: 460px;
+    font-size: 100%;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    display: block;
+	color: #4A4A4A;
+	opacity: 0.9;
+}
+
+.previousBtn {
+	padding-left: 35px;
+    position: absolute;
+    display: block;
+    width: 60px;
+    height: 60px;
+    opacity: 0.2;
+}
+.previousBtn:hover{
+	opacity: 0.6;
+}
+.inputArea {
+	padding-top: 30px;
+	/*background-color: lightblue;*/
+}
+
+/* class="inputArea" */
