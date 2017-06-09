@@ -4,7 +4,7 @@ var MyApp = angular.module('MyApp', ['ngMaterial'])
    })
    .controller('appCtrl', function($scope, $mdSidenav, $log, $mdToast){
 
-   	var page = 14;
+   	var page = 1;
 
    	function nextPage() {
    		$scope.page ++;
@@ -13,7 +13,8 @@ var MyApp = angular.module('MyApp', ['ngMaterial'])
    	function previousPage() {
    		$scope.page --;
    	}
-
+    
+    $scope.userName = '';
    	$scope.page = page;
    	$scope.nextPage = nextPage;
    	$scope.previousPage = previousPage;

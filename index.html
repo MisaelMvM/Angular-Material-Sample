@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>NearApp</title>
+	<title>Angular Material Sample</title>
 	<link href="https://fonts.googleapis.com/css?family=Merriweather:300" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
@@ -88,7 +88,7 @@
                   PREVIOUS PAGE BUTTON
 ////////////////////////////////////////////////////////////-->	
 				<div class="previousBtn" layout="column" layout-align="start end" flex flex="20"
-						ng-show="page !== 1 && page !== 16" style="padding-top: 200px">
+						ng-show="page !== 1 && page !== 16" style="position:fixed;left:10px; top:250px;">
 					<div>
 						<img src="./imgs/arrowLeft.png" ng-click="previousPage()">
 					</div>
@@ -114,7 +114,7 @@
 						<!-- INPUT AREA -->
 						<div class="inputArea">				
 							<md-input-container >	
-								<input type="text" placeholder="FIRST NAME">
+								<input type="text" placeholder="FIRST NAME" ng-model="userName">
 							</md-input-container>
 							<md-input-container>	
 								<input type="text" placeholder="LAST NAME">
@@ -128,7 +128,7 @@
 					<div >
 						<p>
 							<h1 class="chatText">
-								Great to meet you <!-- {{user.name}} -->Cool! What's your<br>home address?	
+								Great to meet you {{userName}}! What's your<br>home address?	
 							</h1>
 						</p>
 					</div>				
@@ -646,23 +646,23 @@
 								<!-- BUILDING STARS -->
 								<div flex="50" layout="column" layout-align="space-around end" ng-init="s = 'starPink.png'">
 									<div>
-										<img src="./imgs/{{s}}" >
-										<img src="./imgs/{{s}}" >
-										<img src="./imgs/{{s}}" >
-										<img src="./imgs/{{s}}" >
-										<img src="./imgs/{{s}}" >
-										<img src="./imgs/{{s}}" >
+										<img ng-src="./imgs/{{s}}" >
+										<img ng-src="./imgs/{{s}}" >
+										<img ng-src="./imgs/{{s}}" >
+										<img ng-src="./imgs/{{s}}" >
+										<img ng-src="./imgs/{{s}}" >
+										<img ng-src="./imgs/{{s}}" >
 									</div>
 									<div>
-										<img src="./imgs/{{s}}" >
-										<img src="./imgs/{{s}}" >
-										<img src="./imgs/{{s}}" >
+										<img ng-src="./imgs/{{s}}" >
+										<img ng-src="./imgs/{{s}}" >
+										<img ng-src="./imgs/{{s}}" >
 									</div>
 									<div>
-										<img src="./imgs/{{s}}" >
-										<img src="./imgs/{{s}}" >
-										<img src="./imgs/{{s}}" >
-										<img src="./imgs/{{s}}" >
+										<img ng-src="./imgs/{{s}}" >
+										<img ng-src="./imgs/{{s}}" >
+										<img ng-src="./imgs/{{s}}" >
+										<img ng-src="./imgs/{{s}}" >
 									</div>
 								</div>
 							</div>														
