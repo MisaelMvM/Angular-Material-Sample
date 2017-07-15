@@ -3,7 +3,7 @@
 ## Instructions
 
 - Clone this repository to your machine.
-- Inside of your new folder (cd Angular-Material-Sample) run npm install.
+- Inside of your new folder (cd angular_material_sample) run npm install.
 - Open the index.html file in your browser.
 
 I built this website trying to replic the Lemonade's website but applying Angular Material to my code. ( https://www.lemonade.com/start/1?f=1 )
